@@ -89,6 +89,7 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.string :other_action
       t.text :action_notes
       t.references :administrator_id
+      t.datetime :date_closed
 
       t.timestamps
     end
