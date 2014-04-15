@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415032133) do
+ActiveRecord::Schema.define(version: 20140415144130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: true do |t|
+    t.string   "number"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blocks", ["active"], name: "index_blocks_on_active", using: :btree
 
   create_table "minor_direct_referrals", force: true do |t|
     t.integer  "student_id"
@@ -176,13 +185,25 @@ ActiveRecord::Schema.define(version: 20140415032133) do
     t.string   "other_action"
     t.text     "action_notes"
     t.integer  "administrator_id_id"
-    t.datetime "date_closed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "office_direct_referrals", ["student_id"], name: "index_office_direct_referrals_on_student_id", using: :btree
   add_index "office_direct_referrals", ["user_id"], name: "index_office_direct_referrals_on_user_id", using: :btree
+
+  create_table "students", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "student_number"
+    t.integer  "grade"
+    t.integer  "year"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "students", ["student_number"], name: "index_students_on_student_number", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
