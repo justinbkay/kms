@@ -1,8 +1,26 @@
-<h2>New Referral</h2>
-<p>Is this a major or a minor incident?</p>
-<button class="btn btn-primary">Minor</button>
-<button class="btn btn-danger">Major</button>
-<%= form_for :office_direct_referral do |f| %>
-<% end %>
-<%= form_for :minor_direct_referral do |f| %>
-<% end %>
+<div id="descision">
+  <h2>New Referral</h2>
+  <p>Is this a major or a minor incident?</p>
+  <button id="minor" class="btn btn-primary">Minor</button>
+  <button id="major" class="btn btn-danger">Major</button>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $().ready(function () {
+    $('#minor').click(function () {
+      $('#descision').empty();
+
+      $.get( "/office_direct_referrals/minor_form", function( data ) {
+         $( "#descision" ).html( data );
+      });
+    });
+
+    $('#major').click(function () {
+      $('#descision').empty();
+
+      $.get( "/office_direct_referrals/major_form", function( data ) {
+         $( "#descision" ).html( data );
+      });
+    });
+  });
+</script>
