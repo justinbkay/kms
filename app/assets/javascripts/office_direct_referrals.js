@@ -9,6 +9,7 @@ $(function() {
 
   $('#student_search').on( "autocompleteselect", function( event, ui ) {
     $('#office_direct_referral_student_id').val(ui.item.id);
+    $('#grade').html(ui.item.grade);
   });
 
 

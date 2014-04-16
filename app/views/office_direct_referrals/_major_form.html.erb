@@ -1,8 +1,16 @@
 <h2>Major referral</h2>
+
 <%= form_for :office_direct_referral do |f| %>
-  <%= f.hidden_field :student_id %>
-  <p>
-    <label>Student</label>
-    <%= text_field_tag :student_search, "", size: 40, autofocus: true %>
-  </p>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.hidden_field :student_id %>
+    <p>
+      <label>Student</label>
+      <%= text_field_tag :student_search, "", size: 40, autofocus: true %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <label>Grade:</label>
+    <span id="grade"></span>
+  </div>
 <% end %>

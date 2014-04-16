@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20140415144130) do
     t.string   "other_action"
     t.text     "action_notes"
     t.integer  "administrator_id_id"
+    t.datetime "date_closed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
