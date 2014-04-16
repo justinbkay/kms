@@ -53,6 +53,12 @@
   </nav>
 
 <div class="container main">
+<% if flash[:notice].present? %>
+<p class="bg-primary lead padded"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:alert].present? %>
+<p class="bg-danger lead padded"><%= flash[:alert] %></p>
+<% end %>
   <%= yield %>
 </div>
 
