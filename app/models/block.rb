@@ -3,5 +3,5 @@ class Block < ActiveRecord::Base
   has_many :minor_direct_referrals
 
   validates :number, :presence => true
-  validates :number, :unique => true
+  validates :number, :uniqueness => true
 end
