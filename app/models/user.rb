@@ -11,8 +11,14 @@ class User < ActiveRecord::Base
 
   enum role: [ :staff, :administrator, :superuser ]
 
+  scope :active, -> { where(active: true).order(:last_name, :first_name) }
+
   def is_admin?
     administrator?
+  end
+
+  def name
+    [first_name, last_name].join(' ')
   end
 
 end

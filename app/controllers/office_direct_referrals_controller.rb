@@ -15,6 +15,7 @@ class OfficeDirectReferralsController < ApplicationController
   end
 
   def major_form
+    @office_direct_referral = OfficeDirectReferral.new(user_id: current_user.id)
     render '_major_form'
   end
 
