@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :security
+
   def new
   end
 
