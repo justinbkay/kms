@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def authorize
-    redirect_to login_url, alert: "Not authorized" if current_user.nil?
-  end
-
   def security
-    authorize
+    if current_user.nil?
+      redirect_to login_url, alert: "Please log in"
+      return false
+    end
+
     unless RIGHTS[@current_user.role.to_sym].detect do |av|
         av[0] == self.class.controller_path && av[1] == self.action_name
       end
