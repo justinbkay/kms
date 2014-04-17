@@ -21,6 +21,6 @@ class OfficeDirectReferralsController < ApplicationController
   end
 
   def student_search
-    render json: Student.where("lower(first_name) like ?", "%#{params[:term].downcase}%").map { |s| [id: s.id, grade: s.grade, label: "#{s.first_name} #{s.last_name}  (#{s.student_number})"]}.flatten
+    render json: Student.where("lower(first_name) like ? AND active='t'", "%#{params[:term].downcase}%").map { |s| [id: s.id, grade: s.grade, label: "#{s.first_name} #{s.last_name}  (#{s.student_number})"]}.flatten
   end
 end
