@@ -13,4 +13,17 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
+
+  def security
+    authorize
+    unless RIGHTS[@current_user.role.to_sym].detect do |av|
+        av[0] == self.class.controller_path && av[1] == self.action_name
+      end
+      flash[:alert] = "You are not authorized to view the requested page"
+      request.env["HTTP_REFERER"] ? (redirect_to :back) : (redirect_to root_url)
+
+      return false
+    end
+  end
+
 end

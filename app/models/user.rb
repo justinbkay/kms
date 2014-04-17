@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  enum role: [ :staff, :administrator, :superuser ]
+
   def is_admin?
-    true
+    administrator?
   end
 
 end
