@@ -17,4 +17,15 @@
     <%= f.collection_select :block_id, Block.all, :id, :number, prompt: true %>
   </div>
 </div>
+  <div class="col-md-4">
+    <label for="">Date of Incident:</label>
+    <%= f.text_field :incident_date %>
+  </div>
+</div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $().ready(function () {
+      $('#office_direct_referral_incident_date').datepicker({minDate: (new Date(2013, 7, 1)), maxDate: (new Date(2014, 6, 1))});
+  });
+</script>
