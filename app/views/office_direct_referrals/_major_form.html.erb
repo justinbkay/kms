@@ -9,11 +9,11 @@
       <%= text_field_tag :student_search, "", size: 40, autofocus: true %>
     </p>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-4">
     <label>Grade:</label>
     <span id="grade"></span>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-4">
     <label>Block:</label>
     <%= f.collection_select :block_id, Block.all, :id, :number, prompt: true %>
   </div>
@@ -62,7 +62,7 @@
         <%= f.check_box :music_room %> Music Room<br />
         <%= f.check_box :locker_room %> Locker Room<br />
         <%= f.check_box :other_location %> Other location<br />
-        <label for="">Location Notes:</label><br />
+        <label class="notes">Location Notes:</label><br />
         <%= f.text_area :location_notes, size: '35x10' %>
       </div>
     </div>
@@ -84,8 +84,9 @@
         <%= f.check_box :theft %> Theft/stolen property<br />
         <%= f.check_box :profanity %> Profanity<br />
         <%= f.check_box :truancy %> Truancy<br />
-        <%= f.check_box :tabacco_drugs %> Use/Posession Tobacco/Drugs<br />
-        <label for="">Behaviour Notes:</label><br />
+        <%= f.check_box :tobacco_drugs %> Use/Posession Tobacco/Drugs<br />
+        <%= f.check_box :other_behaviour %> Other Behaviour<br />
+        <label class="notes">Behaviour Notes:</label><br />
         <%= f.text_area :behaviour_notes, size: '35x10' %>
       </div>
     </div>
@@ -95,6 +96,21 @@
       <div class="panel-heading">ENVIRONMENTAL FACTORS</div>
       <div class="panel-body">
         <%= f.check_box :adult_request %> Adult request/directive<br />
+        <%= f.check_box :oral_instruction %> Oral instruction<br />
+        <%= f.check_box :individual_seat_work %> Individual seat work<br />
+        <%= f.check_box :group_work %> Group Work<br />
+        <%= f.check_box :managing_materials %> Managing materials<br />
+        <%= f.check_box :external_interruptions %> External interruptions (guest, <br /><div style="padding-left: 20px;">PA, phone, student in the hall)</div>
+        <%= f.check_box :classroom_transition %> Classroom transition<br />
+        <%= f.check_box :hallway_passing_time %> Hallway Passing time<br />
+        <%= f.check_box :teasing_from_peer %> Teasing from peer<br />
+        <%= f.check_box :change_in_routine %> Change in routine<br />
+        <%= f.check_box :guest_teacher %> Guest teacher<br />
+        <%= f.check_box :env_outside %> Outside<br />
+        <%= f.check_box :lunchroom %> Lunchroom<br />
+        <%= f.check_box :other_environmental %> Other Environmental<br />
+        <label class="notes">Environmental Notes:</label><br />
+        <%= f.text_area :environmental_notes, size: '35x10' %>
       </div>
     </div>
   </div>
@@ -103,10 +119,43 @@
       <div class="panel-heading">POSSIBLE MOTIVATION</div>
       <div class="panel-body">
         <%= f.check_box :gain_peer_attention %> Gain peer attention<br />
+        <%= f.check_box :gain_adult_attention %> Gain Adult attention<br />
+        <%= f.check_box :obtain_item %> Gain/obtain item<br />
+        <%= f.check_box :obtain_activity %> Gain/obtain activity<br />
+        <%= f.check_box :avoid_peers %> Avoid peer(s)<br />
+        <%= f.check_box :avoid_adults %> Avoid adult(s)<br />
+        <%= f.check_box :avoid_seat_work %> Avoid seat work<br />
+        <%= f.check_box :avoid_group_work %> Avoid group work<br />
+        <%= f.check_box :avoid_event %> Avoid scheduled event<br />
+        <%= f.check_box :other_motivation %> Other motivation<br />
+        <label class="notes">Motivation Notes:</label><br />
+        <%= f.text_area :motivation_notes, size: '35x10' %>
       </div>
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">OTHERS INVOLVED</div>
+      <div class="panel-body">
+        <ul class="list-inline">
+          <li><%= f.check_box :peers %> Peers</li>
+          <li><%= f.check_box :staff %> Staff</li>
+          <li><%= f.check_box :teacher %> Teacher</li>
+          <li><%= f.check_box :others_guest_teacher %> Guest Teacher</li>
+          <li><%= f.check_box :other_involved %> Other</li>
+          <li><%= f.check_box :unknown %> Unknown</li>
+          <li><label>Involved Notes:</label>
+          <%= f.text_field :involved_notes, size: '75' %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<p style="margin-bottom: 40px;">
+  <%= f.submit :save, class: 'btn btn-success' %>
+</p>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
