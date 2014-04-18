@@ -16,4 +16,7 @@ $(function() {
     source: ['Duck', 'Eagle', 'Sequoia', 'Epic']
   });
 
+  $('#office_direct_referral_incident_date').datepicker({minDate: (new Date(2013, 7, 1)), maxDate: (new Date(2014, 6, 1))});
+  $('#incident_time').timepicker({ 'scrollDefaultNow': true, 'step': 5 });
+
 });
