@@ -35,7 +35,8 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.boolean :theft
       t.boolean :profanity
       t.boolean :truancy
-      t.boolean :tabacco_drugs
+      t.boolean :tobacco_drugs
+      t.boolean :other_behaviour
       t.text :behaviour_notes
 
       #environmental
@@ -50,7 +51,7 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.boolean :teasing_from_peer
       t.boolean :change_in_routine
       t.boolean :guest_teacher
-      t.boolean :outside
+      t.boolean :env_outside
       t.boolean :lunchroom
       t.string :other_environmental
       t.text :environmental_notes
@@ -72,9 +73,9 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.boolean :peers
       t.boolean :teacher
       t.boolean :staff
-      t.boolean :guest_teacher
+      t.boolean :others_guest_teacher
       t.boolean :unknown
-      t.string :other_involved
+      t.boolean :other_involved
       t.text :involved_notes
 
       #administrative action
