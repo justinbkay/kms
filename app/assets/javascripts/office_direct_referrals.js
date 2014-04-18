@@ -12,5 +12,8 @@ $(function() {
     $('#grade').html(ui.item.grade);
   });
 
+  $('#office_direct_referral_hallway_name').autocomplete({
+    source: ['Duck', 'Eagle', 'Sequoia', 'Epic']
+  });
 
 });
