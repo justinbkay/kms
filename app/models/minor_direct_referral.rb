@@ -1,6 +1,7 @@
 class MinorDirectReferral < ActiveRecord::Base
   belongs_to :student
   belongs_to :user
+  belongs_to :block
 
   validates :student_id, :presence => true
   validates :block_id, :presence => true
