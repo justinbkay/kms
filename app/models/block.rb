@@ -4,4 +4,8 @@ class Block < ActiveRecord::Base
 
   validates :number, :presence => true
   validates :number, :uniqueness => true
+
+  def to_s
+    number
+  end
 end

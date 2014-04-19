@@ -7,4 +7,8 @@ class Student < ActiveRecord::Base
   validates :student_number, :presence => true
   validates :grade, :presence => true
   validates :year, :presence => true
+
+  def to_s
+    first_name + ' ' + last_name
+  end
 end

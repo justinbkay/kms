@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
+  alias :to_s :name
 end

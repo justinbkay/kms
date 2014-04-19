@@ -7,4 +7,6 @@ class OfficeDirectReferral < ActiveRecord::Base
   validates :block_id, :presence => true
   validates :user_id, :presence => true
   validates :incident_date, :presence => true
+
+  alias :kmsteacher :user
 end
