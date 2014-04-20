@@ -14,6 +14,10 @@ staff = User.new(first_name: 'Meeka', last_name: 'Kay', email: 'meekakay@gmail.c
 staff.password = 'camdon'
 staff.save!
 
+admin2 = User.new(first_name: 'Deb', last_name: 'McGrath', email: 'deb@gmail.com', role: :administrator)
+admin2.password = 'camdon'
+admin2.save!
+
 Student.create(first_name: 'Chase', last_name: 'Johnson', student_number: 48739, grade: 8, year: 2013, active: 1)
 Student.create(first_name: 'Chase', last_name: 'Burtenshaw', student_number: 48738, grade: 7, year: 2013, active: 1)
 Student.create(first_name: 'Patrick', last_name: 'Hansen', student_number: 48737, grade: 8, year: 2012, active: 0)
