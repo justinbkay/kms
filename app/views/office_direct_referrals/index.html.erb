@@ -9,6 +9,7 @@
         <th>Staff</th>
         <th>Date</th>
         <th>Time</th>
+        <th>&nbsp;</th>
       </tr>
     <% @office_direct_referrals.each do |r| %>
      <tr>
@@ -18,6 +19,7 @@
        <td><%= r.kmsteacher %></td>
        <td><%= r.incident_date.strftime('%m/%d/%y') %></td>
        <td><%= r.incident_date.strftime('%l:%M %p') %></td>
+       <td><%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_office_direct_referral_path(r) %></td>
      </tr>
     <% end %>
     </table>

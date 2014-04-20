@@ -22,6 +22,12 @@ class OfficeDirectReferralsController < ApplicationController
   end
 
   def edit
+    @office_direct_referral = OfficeDirectReferral.find(params[:id])
+    @student = @office_direct_referral.student
+  end
+
+  def update
+
   end
 
   private
