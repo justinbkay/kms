@@ -17,12 +17,12 @@
     <%= f.hidden_field :student_id %>
     <p>
       <label>Student</label>
-      <%= text_field_tag :student_search, "", size: 40, autofocus: true %>
+      <%= text_field_tag :student_search, @student.try(:name_plus_number), size: 40, autofocus: true %>
     </p>
   </div>
   <div class="col-md-4">
     <label>Grade:</label>
-    <span id="grade"></span>
+    <span id="grade"><%= @student.try(:grade) %></span>
   </div>
   <div class="col-md-4">
     <label>Block:</label>

@@ -12,6 +12,7 @@ class OfficeDirectReferralsController < ApplicationController
     if @office_direct_referral.save
       redirect_to root_url
     else
+      @student = Student.find(params[:office_direct_referral][:student_id])
       render :new
     end
   end
@@ -33,8 +34,8 @@ class OfficeDirectReferralsController < ApplicationController
 
   def parse_da_time(idate, itime)
     zone = "Mountain Time (US & Canada)"
-    preparsed_date = Date.strptime(idate, "%m/%d/%Y")
     begin
+      preparsed_date = Date.strptime(idate, "%m/%d/%Y")
       return ActiveSupport::TimeZone[zone].parse("#{preparsed_date.to_s} #{itime}:00")
     rescue
       return nil

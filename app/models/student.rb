@@ -11,4 +11,8 @@ class Student < ActiveRecord::Base
   def to_s
     first_name + ' ' + last_name
   end
+
+  def name_plus_number
+    to_s + " (#{student_number})"
+  end
 end
