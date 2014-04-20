@@ -7,9 +7,7 @@ class OfficeDirectReferralsController < ApplicationController
 
   def create
     @office_direct_referral = OfficeDirectReferral.new(referral_params)
-    zone = "Mountain Time (US & Canada)"
-
-    @office_direct_referral.incident_date = ActiveSupport::TimeZone[zone].parse("#{params[:incident_date]} #{params[:incident_time]}:00")
+    @office_direct_referral.incident_date = parse_da_time(params[:incident_date], params[:incident_time])
 
     if @office_direct_referral.save
       redirect_to root_url
@@ -29,6 +27,18 @@ class OfficeDirectReferralsController < ApplicationController
 
   def referral_params
     params.require(:office_direct_referral).permit!
+  end
+
+  private
+
+  def parse_da_time(idate, itime)
+    zone = "Mountain Time (US & Canada)"
+    preparsed_date = Date.strptime(idate, "%m/%d/%Y")
+    begin
+      return ActiveSupport::TimeZone[zone].parse("#{preparsed_date.to_s} #{itime}:00")
+    rescue
+      return nil
+    end
   end
 
 end
