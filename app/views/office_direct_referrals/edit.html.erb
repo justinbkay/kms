@@ -164,6 +164,32 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-warning">
+      <div class="panel-heading">ADMINISTRATIVE ACTION TAKEN</div>
+      <div class="panel-body">
+        <ul class="list-inline">
+          <li><%= f.check_box :problem_solving_process %> Problem-solving process/re-taught expectations</li>
+          <li><%= f.check_box :parent_contact %> Parent contact</li>
+          <li><%= f.check_box :individualized_instruction %> Individualized Instruction</li>
+          <li><%= f.check_box :lunch_detention %> Lunch Detention</li>
+        </ul>
+        <ul class="list-inline">
+          <li><%= f.check_box :loss_of_privileges %> Loss of privileges</li>
+          <li><%= f.check_box :iss %> ISS</li>
+          <li><%= f.check_box :oss %> OSS</li>
+          <li><%= f.check_box :restitution %> Restitution</li>
+        </ul>
+        <ul class="list-inline">
+          <li>Other <%= f.text_field :other_action %></li>
+        </ul>
+        <label>Administrative Action Notes:</label><br />
+          <%= f.text_area :action_notes, size: '150x7' %></li>
+      </div>
+    </div>
+  </div>
+</div>
 <p style="margin-bottom: 40px;">
   <%= f.submit :save, class: 'btn btn-success' %>
 </p>
