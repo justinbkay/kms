@@ -9,4 +9,10 @@ RIGHTS[:staff] = [
                   ['office_direct_referrals', 'student_search']
                  ]
 RIGHTS[:administrator] = [[]] + RIGHTS[:staff]
-RIGHTS[:superuser] = [[]] + RIGHTS[:staff]
+RIGHTS[:superuser] = [
+                      ['users', 'new'],
+                      ['users', 'create'],
+                      ['users', 'index'],
+                      ['users', 'edit'],
+                      ['users', 'update']
+                     ] + RIGHTS[:staff]

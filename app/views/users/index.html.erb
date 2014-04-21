@@ -1,0 +1,14 @@
+<h2>Users</h2>
+
+<table class="table">
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.to_s %></td>
+      <td><%= u.email %></td>
+      <td><%= u.role %></td>
+      <td><%= active_icon(u.active) %></td>
+      <td><%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_user_path(u) %></td>
+    </tr>
+  <% end %>
+</table>
+
