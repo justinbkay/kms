@@ -5,12 +5,9 @@ Rails.application.routes.draw do
 
   get 'student_search', to: 'office_direct_referrals#student_search', as: 'student_search'
 
-  get 'office_direct_referrals/minor_form'
-  get 'office_direct_referrals/major_form'
-  match 'office_direct_referrals/major_form' => 'office_direct_referrals#create_major_form', :via => :post, :as => 'create_major_form'
-
   resources :users
   resources :sessions
+  resources :students
   resources :office_direct_referrals
   resources :minor_direct_referrals
 
