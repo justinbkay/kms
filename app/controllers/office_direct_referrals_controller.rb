@@ -57,8 +57,6 @@ class OfficeDirectReferralsController < ApplicationController
                                                    :iss, :oss, :other_action, :action_notes, :date_closed)
   end
 
-  private
-
   def parse_da_time(idate, itime)
     zone = "Mountain Time (US & Canada)"
     begin
