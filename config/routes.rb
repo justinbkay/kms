@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'minor_direct_referral/index'
-
-  get 'minor_direct_referral/new'
-
-  get 'minor_direct_referral/edit'
-
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
@@ -18,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :office_direct_referrals
+  resources :minor_direct_referrals
 
   root :to => "office_direct_referrals#index"
 
