@@ -28,7 +28,13 @@ class OfficeDirectReferralsController < ApplicationController
   end
 
   def update
+    @office_direct_referral = OfficeDirectReferral.find(params[:id])
 
+    if @office_direct_referral.update_attributes(referral_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   private
