@@ -27,8 +27,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li class="active"><%= link_to 'New ODR', new_office_direct_referral_path %></li>
-          <li><a href="#">Open ODRs</a></li>
+          <li><%= link_to 'New ODR', new_office_direct_referral_path %></li>
+          <li><%= link_to "Open ODRs", office_direct_referrals_path %></li>
         <% end %>
         <% if current_user && current_user.is_admin? %>
           <li class="active"><a href="#">Staff</a></li>
