@@ -1,0 +1,16 @@
+<table class="table table-condensed table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Student Number</th>
+    <th>Grade</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @students.each do |s| %>
+    <tr>
+      <td><%= s.to_s %></td>
+      <td><%= s.student_number %></td>
+      <td><%= s.grade %></td>
+      <td><%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_student_path(s) %></td>
+    </tr>
+  <% end %>
+</table>

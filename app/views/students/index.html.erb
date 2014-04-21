@@ -1,2 +1,13 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<h2>Search Students</h2>
+
+<%= form_tag '/students/search', :onsubmit => 'get_users(); return false;', :class => 'search' do %>
+  <p>Last Name [, First Name]: <br /><%= text_field_tag 'name', nil, :autofocus => true %></p>
+  <%= submit_tag 'Search', class: 'btn btn-primary' %>
+<% end %>
+
+<div class="hidden margin_top" id="viewstatus">
+  <p>Loading...</p>
+</div>
+
+<div class="hidden margin_top" id="results">
+</div>

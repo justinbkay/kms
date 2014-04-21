@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   get 'student_search', to: 'office_direct_referrals#student_search', as: 'student_search'
+  post 'students/search', to: 'students#search'
 
   resources :users
   resources :sessions
