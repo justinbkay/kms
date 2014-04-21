@@ -164,6 +164,7 @@
     </div>
   </div>
 </div>
+<% if current_user.administrator? %>
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-warning">
@@ -190,6 +191,7 @@
     </div>
   </div>
 </div>
+<% end %>
 <p style="margin-bottom: 40px;">
   <%= f.submit :save, class: 'btn btn-success' %>
 </p>
