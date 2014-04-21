@@ -1,9 +1,10 @@
 class ReferralMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "admin@kunaschools.org"
 
-  def odr_submitted
-    @greeting = "Hi"
+  def odr_submitted(odr)
+    @odr = odr
 
-    mail to: "to@example.org"
+    mail(to: odr.user.email,
+         subject: "Thank You for your submission")
   end
 end

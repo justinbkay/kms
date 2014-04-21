@@ -10,6 +10,7 @@ class OfficeDirectReferralsController < ApplicationController
     @office_direct_referral.incident_date = parse_da_time(params[:incident_date], params[:incident_time])
 
     if @office_direct_referral.save
+      ReferralMailer.odr_submitted(@office_direct_referral).deliver
       redirect_to root_url
     else
       @student = Student.find(params[:office_direct_referral][:student_id])
