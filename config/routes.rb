@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'student_search', to: 'office_direct_referrals#student_search', as: 'student_search'
   post 'students/search', to: 'students#search'
+  get 'students/:id/office_direct_referrals', to: 'students#office_direct_referrals', as: 'odr_by_student'
 
   resources :users
   resources :sessions

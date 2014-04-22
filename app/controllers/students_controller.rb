@@ -42,6 +42,10 @@ class StudentsController < ApplicationController
     @students = Student.search_by_name(names)
   end
 
+  def office_direct_referrals
+    @student = Student.find(params[:id])
+  end
+
   private
 
   def student_params
