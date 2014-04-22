@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_url
     else
-      render :new
+      render users_path
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      redirect_to root_url
+      redirect_to users_path
     else
       render :edit
     end
