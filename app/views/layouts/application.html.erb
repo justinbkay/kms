@@ -28,8 +28,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li><%= link_to 'New ODR', new_office_direct_referral_path %></li>
-          <li><%= link_to "Open ODRs", office_direct_referrals_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ODRs <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'New ODR', new_office_direct_referral_path %></li>
+              <li><%= link_to 'New Minor ODR', new_minor_direct_referral_path %></li>
+              <li><%= link_to "Open ODRs", office_direct_referrals_path %></li>
+            </ul>
+          </li>
         <% end %>
         <% if current_user && current_user.superuser? %>
           <li class="dropdown">
@@ -45,7 +51,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "List Students", students_path %></li>
+              <li><%= link_to "Search Students", students_path %></li>
               <li><%= link_to "Add Students", new_student_path %></li>
             </ul>
           </li>
