@@ -1,2 +1,42 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<h1>Editing <%= @student %></h1>
+
+<% if @student.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <h2><%= pluralize(@student.errors.count, "error") %> prohibited this form from being saved:</h2>
+    <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><span class="glyphicon glyphicon-remove"></span> <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @student do |f| %>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :student_number %><br />
+    <%= f.text_field :student_number %>
+  </p>
+  <p>
+    <%= f.label :grade %><br />
+    <%= f.text_field :grade %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </p>
+  <p>
+    <%= f.submit :save, class: 'btn btn-success' %>
+  </p>
+<% end %>
