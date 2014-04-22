@@ -4,8 +4,8 @@
     <table class="table table-condensed table-hover">
       <tr>
         <th>Student</th>
-        <th>Grade</th>
-        <th>Block</th>
+        <th class="text-center">Grade</th>
+        <th class="text-center">Block</th>
         <th>Staff</th>
         <th>Date</th>
         <th>Time</th>
@@ -14,8 +14,8 @@
     <% @office_direct_referrals.each do |r| %>
      <tr>
        <td><%= r.student %></td>
-       <td><%= r.student.grade %></td>
-       <td><%= r.block %></td>
+       <td class="text-center"><%= r.student.grade %></td>
+       <td class="text-center"><%= r.block %></td>
        <td><%= r.kmsteacher %></td>
        <td><%= r.incident_date.strftime('%m/%d/%y') %></td>
        <td><%= r.incident_date.strftime('%l:%M %p') %></td>
