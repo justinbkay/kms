@@ -1,0 +1,12 @@
+<div class="row login">
+  <div class="col-md-12 text-center">
+    <%= form_tag password_resets_path, :method => :post do %>
+      <div class="field"> <%= label_tag :email, 'Enter the email associated with your account to begin the reset process' %><br />
+    <%= text_field_tag :email, params[:email], size: 40, autofocus: true, placeholder: 'email address goes here'%>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Reset Password", class: 'btn btn-warning' %>
+    </div>
+  <% end %>
+  </div>
+</div>
