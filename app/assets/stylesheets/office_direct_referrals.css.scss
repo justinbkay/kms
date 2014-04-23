@@ -40,8 +40,17 @@ label.notes {
   margin-top: 10px;
 }
 
-.logo {
+#logo_container {
+  z-index: -1000;
+  height: 103px;
+  width: 103px;
   top: 60px;
   left:10px;
   position: absolute;
+  background-image: image-url("logo.png");
 }
+
+table {
+  background-color: #FFF;
+}
+
