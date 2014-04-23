@@ -22,21 +22,6 @@
       </button>
       <a class="navbar-brand" href="#">Kuna Middle School ODR</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-        <% if current_user %>
-          <%= link_to "Log Out #{current_user.email}", logout_path %>
-        <% else %>
-          <% unless controller.controller_name == 'sessions' && controller.action_name == 'new' %>
-            <%= link_to "Log In", login_path %>
-          <% end %>
-        <% end %>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
   </nav>
 
