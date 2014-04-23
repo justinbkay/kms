@@ -10,5 +10,14 @@ div.field {
 }
 
 div.login {
-  margin-top: 200px;
+  margin-top: 40px;
 }
+
+#login_logo_container {
+  z-index: -1000;
+  height: 103px;
+  background-image: image-url("logo.png");
+  background-repeat:no-repeat;
+  background-position:center;
+}
+

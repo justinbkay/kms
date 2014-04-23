@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KMS ODR</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Kuna Middle School ODR</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        <% if current_user %>
+          <%= link_to "Log Out #{current_user.email}", logout_path %>
+        <% else %>
+          <% unless controller.controller_name == 'sessions' && controller.action_name == 'new' %>
+            <%= link_to "Log In", login_path %>
+          <% end %>
+        <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+
+<div class="container main">
+  <% if flash[:notice].present? %>
+    <p class="bg-primary lead padded"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:alert].present? %>
+    <p class="bg-danger lead padded"><%= flash[:alert] %></p>
+  <% end %>
+  <div class="row">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-2" id="login_logo_container">
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
+    <%= yield %>
+</div>
+
+</body>
+</html>
