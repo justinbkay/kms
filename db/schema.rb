@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423153520) do
+ActiveRecord::Schema.define(version: 20140424030306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 20140423153520) do
   end
 
   add_index "blocks", ["active"], name: "index_blocks_on_active", using: :btree
+
+  create_table "detention_dates", force: true do |t|
+    t.date     "date",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "detention_dates", ["date"], name: "index_detention_dates_on_date", unique: true, using: :btree
+
+  create_table "detentions", force: true do |t|
+    t.integer  "office_direct_referral_id",                 null: false
+    t.integer  "detention_date_id",                         null: false
+    t.integer  "detention_type"
+    t.boolean  "completed",                 default: false
+    t.integer  "assigned_by",                               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "detentions", ["office_direct_referral_id", "detention_date_id"], name: "odr_detention_date", using: :btree
 
   create_table "minor_direct_referrals", force: true do |t|
     t.integer  "student_id"
