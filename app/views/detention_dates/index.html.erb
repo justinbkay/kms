@@ -8,16 +8,16 @@
     <% @dd = @detention_dates[date].try(:first) %>
     <%= date.day %>
     <% if @dd %>
-      <p>
+      <p class="text-center">
       <% if @dd.blacked_out %>
         <span class="glyphicon glyphicon-remove red"></span>
       <% else %>
-        <button id="<%= @dd.id.to_s %>" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout."><span class="glyphicon glyphicon-ok green"></span></button>
+        <button id="<%= @dd.id.to_s %>" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout.">
+          <span class="glyphicon glyphicon-ok green"></span>
+          - <%= @dd.detentions.size unless @dd.blacked_out %>
+        </button>
       <% end %>
       </p>
-      <div class="detention_count">
-        <%= @dd.detentions.size unless @dd.blacked_out %>
-      </div>
     <% end %>
   <% end %>
 </div>
