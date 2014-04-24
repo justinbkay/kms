@@ -1,0 +1,43 @@
+<div class="main" id="detention_dates">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @detention_dates[date] %>
+      <p>
+      <% if @detention_dates[date].first.blacked_out %>
+        <span class="glyphicon glyphicon-remove red"></span>
+      <% else %>
+        <button id="<%= @detention_dates[date].first.id.to_s %>" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout."><span class="glyphicon glyphicon-ok green"></span></button>
+      <% end %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $().ready(function () {
+    $('button').tooltip({delay: { show: 500, hide: 100 }});
+
+    $('button').dblclick(function () {
+      blackout(this.id);
+    });
+
+  });
+
+  var blackout = function (id) {
+    $.ajax({
+            type: "PUT",
+            url: 'detention_dates/' + id,
+            success: change_glyphicon(id),
+            dataType: "json"
+          });
+  };
+
+  var change_glyphicon = function (id) {
+    $('#' + id).html('<span class="glyphicon glyphicon-remove red"></span>');
+  };
+</script>

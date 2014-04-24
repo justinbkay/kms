@@ -28,3 +28,15 @@ Block.create(number: 2, active: true)
 Block.create(number: 3, active: true)
 Block.create(number: 4, active: true)
 Block.create(number: 5, active: true)
+
+# set up the detention_dates for 20 years
+today = Date.today
+current = today
+end_date = today + 20.years
+
+while current < end_date
+  # black out all weekends
+  blackout = [6,7].include?(current.cwday)
+  DetentionDate.create(date: current, blacked_out: blackout)
+  current += 1.day
+end

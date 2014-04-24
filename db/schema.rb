@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20140424030306) do
   add_index "blocks", ["active"], name: "index_blocks_on_active", using: :btree
 
   create_table "detention_dates", force: true do |t|
-    t.date     "date",       null: false
+    t.date     "date",                        null: false
+    t.boolean  "blacked_out", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
