@@ -12,7 +12,7 @@
       <% if @dd.blacked_out %>
         <span class="glyphicon glyphicon-remove red"></span>
       <% else %>
-        <button id="<%= @dd.id.to_s %>" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout.">
+        <button id="<%= @dd.id.to_s %>" class="btn btn-default blackout" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout.">
           <span class="glyphicon glyphicon-ok green"></span>
           - <%= @dd.detentions.size unless @dd.blacked_out %>
         </button>
@@ -21,27 +21,3 @@
     <% end %>
   <% end %>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-  $().ready(function () {
-    $('button').tooltip({delay: { show: 500, hide: 100 }});
-
-    $('button').dblclick(function () {
-      blackout(this.id);
-    });
-
-  });
-
-  var blackout = function (id) {
-    $.ajax({
-            type: "PUT",
-            url: 'detention_dates/' + id,
-            success: change_glyphicon(id),
-            dataType: "json"
-          });
-  };
-
-  var change_glyphicon = function (id) {
-    $('#' + id).html('<span class="glyphicon glyphicon-remove red"></span>');
-  };
-</script>
