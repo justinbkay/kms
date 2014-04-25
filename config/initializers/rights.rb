@@ -8,11 +8,11 @@ RIGHTS[:staff] = [
                   ['office_direct_referrals', 'update'],
                   ['office_direct_referrals', 'student_search']
                  ]
-RIGHTS[:administrator] = [[
+RIGHTS[:administrator] = [
                           ['detention_dates', 'index'],
                           ['detention_dates', 'show'],
                           ['detention_dates', 'update']
-                         ]] + RIGHTS[:staff]
+                         ] + RIGHTS[:staff]
 RIGHTS[:superuser] = [
                       ['users', 'new'],
                       ['users', 'create'],
@@ -26,4 +26,4 @@ RIGHTS[:superuser] = [
                       ['students', 'update'],
                       ['students', 'search'],
                       ['students', 'office_direct_referrals']
-                     ] + RIGHTS[:staff]
+                     ] + RIGHTS[:administrator] + RIGHTS[:staff]
