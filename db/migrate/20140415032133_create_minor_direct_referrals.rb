@@ -21,7 +21,7 @@ class CreateMinorDirectReferrals < ActiveRecord::Migration
       t.string :other_location
       t.text :location_notes
 
-      #behaviours
+      #behaviors
       t.boolean :fighting
       t.boolean :assault
       t.boolean :insubordination
@@ -36,7 +36,7 @@ class CreateMinorDirectReferrals < ActiveRecord::Migration
       t.boolean :profanity
       t.boolean :truancy
       t.boolean :tabacco_drugs
-      t.text :behaviour_notes
+      t.text :behavior_notes
 
       #environmental
       t.boolean :adult_request

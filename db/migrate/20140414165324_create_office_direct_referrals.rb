@@ -21,7 +21,7 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.string :other_location
       t.text :location_notes
 
-      #behaviours
+      #behaviors
       t.boolean :fighting
       t.boolean :assault
       t.boolean :insubordination
@@ -36,8 +36,8 @@ class CreateOfficeDirectReferrals < ActiveRecord::Migration
       t.boolean :profanity
       t.boolean :truancy
       t.boolean :tobacco_drugs
-      t.boolean :other_behaviour
-      t.text :behaviour_notes
+      t.boolean :other_behavior
+      t.text :behavior_notes
 
       #environmental
       t.boolean :adult_request

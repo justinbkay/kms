@@ -18,4 +18,8 @@ class OfficeDirectReferral < ActiveRecord::Base
   def formatted_time
     incident_date.strftime("%l:%M%P")
   end
+
+  def problem_behavior
+    
+  end
 end

@@ -75,7 +75,7 @@ class OfficeDirectReferralsController < ApplicationController
                                                    :gym, :outside, :music_room, :locker_room, :other_location, :location_notes,
                                                    :fighting, :assault, :insubordination, :left_supervised_area, :threat_of_physical_harm,
                                                    :harrassment, :chronic_bullying, :obscene_act, :weapon, :destruction_of_property, :theft,
-                                                   :profanity, :truancy, :tobacco_drugs, :other_behaviour, :behaviour_notes, :adult_request,
+                                                   :profanity, :truancy, :tobacco_drugs, :other_behavior, :hehavior_notes, :adult_request,
                                                    :oral_instruction, :individual_seat_work, :group_work, :managing_materials,
                                                    :external_interruptions, :classroom_transition, :hallway_passing_time, :teasing_from_peer,
                                                    :change_in_routine, :guest_teacher, :env_outside, :lunchroom, :other_environmental,
