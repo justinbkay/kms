@@ -20,6 +20,13 @@ class OfficeDirectReferral < ActiveRecord::Base
   end
 
   def problem_behavior
-    
+    problems = []
+
+    [:fighting, :assault, :insubordination, :left_supervised_area, :threat_of_physical_harm, :harrassment, :chronic_bullying, :obscene_act, :weapon, :destruction_of_property, :theft, :profanity, :truancy, :tobacco_drugs, :other_behavior].each do |b|
+      problems << b.to_s.titleize if self.send(b) == true
+    end
+
+    return problems.join(', ')
   end
+
 end
