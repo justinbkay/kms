@@ -3,4 +3,7 @@ class DetentionDate < ActiveRecord::Base
 
   validates :date, presence: true
 
+  def to_s
+    date.strftime("%m/%d/%Y")
+  end
 end

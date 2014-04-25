@@ -1,0 +1,18 @@
+<h2 class="main">Detention Schedule for <%= @detention_date %></h2>
+
+<table class="table table-condensed table-hover">
+  <tr>
+    <th>Student</th>
+    <th>Teacher</th>
+    <th>Assigned by</th>
+    <th>Complete?</th>
+  </tr>
+  <% @detention_date.detentions.each do |d| %>
+    <tr>
+      <td><%= d.office_direct_referral.student %></td>
+      <td><%= d.office_direct_referral.user %></td>
+      <td><%= d.assignor %></td>
+      <td><%= complete_icons(d.completed) %></td>
+    </tr>
+  <% end %>
+</table>

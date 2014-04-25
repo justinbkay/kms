@@ -46,4 +46,13 @@ module DetentionDatesHelper
       (first..last).to_a.in_groups_of(7)
     end
   end
+
+  def complete_icons(bool)
+    if bool
+      '<span class="glyphicon glyphicon-ok green"></span>'.html_safe
+    else
+      '<span class="glyphicon glyphicon-remove red"></span>'.html_safe
+    end
+  end
+
 end

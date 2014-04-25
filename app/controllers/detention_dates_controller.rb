@@ -6,6 +6,10 @@ class DetentionDatesController < ApplicationController
     @detention_dates = DetentionDate.where(date: beginning..ending).group_by(&:date)
   end
 
+  def show
+    @detention_date = DetentionDate.find(params[:id])
+  end
+
   def update
     @detention_date = DetentionDate.find(params[:id])
 

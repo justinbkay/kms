@@ -5,6 +5,10 @@ $().ready(function () {
     blackout(this.id);
   });
 
+  $('button.btn.btn-default.blackout').click(function() {
+    location.href = 'detention_dates/' + this.id;
+  });
+
 });
 
 var blackout = function (id) {
