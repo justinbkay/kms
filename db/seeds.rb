@@ -7,21 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin = User.new(first_name: 'Justin', last_name: 'Kay', email: 'justinbkay@gmail.com', role: :superuser)
-admin.password = 'camdon'
+admin.password = 'secret'
 admin.save!
 
-staff = User.new(first_name: 'Meeka', last_name: 'Kay', email: 'meekakay@gmail.com', role: :staff)
-staff.password = 'camdon'
+staff = User.new(first_name: 'Meeka', last_name: 'Kay', email: 'mkay@kunaschools.org', role: :staff)
+staff.password = 'secret'
 staff.save!
 
-admin2 = User.new(first_name: 'Deb', last_name: 'McGrath', email: 'deb@gmail.com', role: :administrator)
-admin2.password = 'camdon'
+staff = User.new(first_name: 'Karen', last_name: 'Brown', email: 'kbrown@kunaschools.org', role: :staff)
+staff.password = 'secret'
+staff.save!
+
+admin2 = User.new(first_name: 'Deb', last_name: 'McGrath', email: 'dmcgrath@kunaschools.org', role: :administrator)
+admin2.password = 'secret'
 admin2.save!
 
 Student.create(first_name: 'Chase', last_name: 'Johnson', student_number: 48739, grade: 8, year: 2013, active: 1)
 Student.create(first_name: 'Chase', last_name: 'Burtenshaw', student_number: 48738, grade: 7, year: 2013, active: 1)
 Student.create(first_name: 'Patrick', last_name: 'Hansen', student_number: 48737, grade: 8, year: 2012, active: 0)
 Student.create(first_name: 'Jamon', last_name: 'Kay', student_number: 48736, grade: 8, year: 2013, active: 1)
+Student.create(first_name: 'Alysa', last_name: 'Walker', student_number: 48499, grade: 7, year: 2013, active: 1)
+Student.create(first_name: 'Kenya', last_name: 'Morales', student_number: 48489, grade: 8, year: 2013, active: 1)
 
 Block.create(number: 1, active: true)
 Block.create(number: 2, active: true)
