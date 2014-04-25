@@ -12,9 +12,13 @@
       <% if @dd.blacked_out %>
         <span class="glyphicon glyphicon-remove red"></span>
       <% else %>
-        <button id="<%= @dd.id.to_s %>" class="btn btn-default blackout" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout.">
+        <button id="<%= @dd.id %>" class="btn btn-default blackout" data-toggle="tooltip" data-placement="bottom" title="Double click to blackout.">
           <span class="glyphicon glyphicon-ok green"></span>
-          - <%= @dd.detentions.size unless @dd.blacked_out %>
+        </button>
+      <% end %>
+      <% if @dd.detentions.size > 0 %>
+        <button class="btn btn-default show" data-id="<%= @dd.id %>" data-toggle="tooltip" data-placement="bottom" title="Click to see detention list.">
+          <%= @dd.detentions.size %>
         </button>
       <% end %>
       </p>

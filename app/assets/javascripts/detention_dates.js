@@ -1,12 +1,13 @@
 $().ready(function () {
   $('button.btn.btn-default.blackout').tooltip({delay: { show: 500, hide: 100 }});
+  $('button.btn.btn-default.show').tooltip({delay: { show: 500, hide: 100 }});
 
   $('button.btn.btn-default.blackout').dblclick(function () {
     blackout(this.id);
   });
 
-  $('button.btn.btn-default.blackout').click(function() {
-    location.href = 'detention_dates/' + this.id;
+  $('button.btn.btn-default.show').click(function() {
+    location.href = 'detention_dates/' + this.getAttribute('data-id');
   });
 
 });
