@@ -31,6 +31,7 @@ class OfficeDirectReferralsController < ApplicationController
     @office_direct_referral = OfficeDirectReferral.find(params[:id])
 
     if @office_direct_referral.update_attributes(referral_params)
+      assign_detention?(@office_direct_referral)
       redirect_to root_url
     else
       render :edit
@@ -38,6 +39,35 @@ class OfficeDirectReferralsController < ApplicationController
   end
 
   private
+
+  def assign_detention?(odr)
+    if odr.lunch_detention?
+      # check to see if detention was already assigned
+      if odr.detention.nil?
+        detention_day = find_next_available_detention_slot()
+        odr.create_detention(detention_type: :lunch, assigned_by: current_user.id, detention_date_id: detention_day.id)
+      end
+    end
+  end
+
+  def find_next_available_detention_slot
+    start_day = Date.today
+
+    opening = nil
+
+    while opening == nil
+      opening = check_schedule(start_day)
+      start_day += 1
+    end
+
+    return opening
+  end
+
+  def check_schedule(date)
+    open_date = DetentionDate.where("date > ? AND blacked_out = 'f'", date).first
+
+    open_date.detentions.count < 13 ? open_date : nil
+  end
 
   def referral_params
     params.require(:office_direct_referral).permit(:student_id, :block_id, :user_id, :incident_date, :bus, :cafeteria,

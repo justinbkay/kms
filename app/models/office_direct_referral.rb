@@ -2,6 +2,7 @@ class OfficeDirectReferral < ActiveRecord::Base
   belongs_to :student
   belongs_to :user
   belongs_to :block
+  has_one :detention
 
   validates :student_id, :presence => true
   validates :block_id, :presence => true
