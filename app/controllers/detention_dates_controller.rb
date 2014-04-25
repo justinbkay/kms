@@ -1,4 +1,6 @@
 class DetentionDatesController < ApplicationController
+  before_filter :security
+
   def index
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     beginning = @date.beginning_of_month

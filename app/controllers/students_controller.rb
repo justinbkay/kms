@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_filter :security
+
   def new
     @student = Student.new
   end
