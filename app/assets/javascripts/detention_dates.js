@@ -16,8 +16,7 @@ var blackout = function (id) {
   $.ajax({
     type: "PUT",
           url: 'detention_dates/' + id,
-          success: change_glyphicon(id),
-          dataType: "json"
+          dataType: "script"
   });
 };
 
