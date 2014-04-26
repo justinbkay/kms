@@ -1,12 +1,12 @@
 $().ready(function () {
   $('button.btn.btn-default.blackout').tooltip({delay: { show: 500, hide: 100 }});
-  $('button.btn.btn-default.show').tooltip({delay: { show: 500, hide: 100 }});
+  $('button.btn.btn-primary.show').tooltip({delay: { show: 500, hide: 100 }});
 
   $('button.btn.btn-default.blackout').dblclick(function () {
     blackout(this.id);
   });
 
-  $('button.btn.btn-default.show').click(function() {
+  $('button.btn.btn-primary.show').click(function() {
     location.href = 'detention_dates/' + this.getAttribute('data-id');
   });
 
