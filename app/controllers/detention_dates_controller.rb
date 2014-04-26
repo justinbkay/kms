@@ -18,9 +18,12 @@ class DetentionDatesController < ApplicationController
     @detention_date.update_attributes({blacked_out: true})
 
     #TODO If we update a date with detentions, we need to reschedule them
+    if @detention_date.has_scheduled_detentions?
+      DetentionScheduler.new(dd: @detention_date).reschedule
+    end
 
     respond_to do |format|
-        format.json { render :json => "success" }
+      format.json { render :json => "success" }
     end
   end
 
