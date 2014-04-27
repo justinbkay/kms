@@ -17,7 +17,6 @@ class DetentionDatesController < ApplicationController
 
     @detention_date.update_attributes({blacked_out: true})
 
-    #TODO If we update a date with detentions, we need to reschedule them
     if @detention_date.has_scheduled_detentions?
       DetentionScheduler.new(dd: @detention_date).reschedule
     end
@@ -27,6 +26,15 @@ class DetentionDatesController < ApplicationController
     @detention = Detention.find(params[:detention_id])
 
     if @detention.update_attributes(completed: true)
+      render json: {complete: true}
+    else
+      render json: {complete: false}
+    end
+  end
+
+  def reschedule
+    @detention = Detention.find(params[:detention_id])
+    if DetentionScheduler.new(detention: @detention).reschedule_single
       render json: {complete: true}
     else
       render json: {complete: false}

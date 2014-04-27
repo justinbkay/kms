@@ -39,3 +39,17 @@ var show_complete = function(id) {
   $('#cl_' + id).html('');
   $('#schedule_' + id).html('');
 };
+
+var reschedule = function(id) {
+  $.post("reschedule", {detention_id: id}, function(data) {
+    if(data.complete === true) {
+      remove_on_reschedule(id);
+    } else {
+      alert('An error occurred when trying to reschedule the detention')
+    }
+  }, "json")
+};
+
+var remove_on_reschedule = function(id) {
+  $('#reschedule_' + id).parent().remove();
+};

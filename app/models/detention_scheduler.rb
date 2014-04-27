@@ -1,8 +1,9 @@
 class DetentionScheduler
-  def initialize(odr: nil, user: nil, dd: nil)
+  def initialize(odr: nil, user: nil, dd: nil, detention: nil)
     @odr = odr
     @current_user = user
     @detention_date = dd
+    @detention = detention
   end
 
   def assign_detention
@@ -25,10 +26,17 @@ class DetentionScheduler
     end
   end
 
+  def reschedule_single
+    detention_day = find_next_available_detention_slot(@detention.detention_date.date)
+    @detention.update_attributes(detention_date_id: detention_day.id)
+  rescue
+    return nil
+  end
+
   private
 
-  def find_next_available_detention_slot
-    start_day = Date.today
+  def find_next_available_detention_slot(start_day=nil)
+    start_day ||= Date.today
 
     opening = nil
 

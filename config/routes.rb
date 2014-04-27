@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'students/:id/office_direct_referrals', to: 'students#office_direct_referrals', as: 'odr_by_student'
 
   post 'detention_dates/mark_complete', to: 'detention_dates#mark_complete'
+  post 'detention_dates/reschedule', to: 'detention_dates#reschedule'
 
   resources :users
   resources :sessions

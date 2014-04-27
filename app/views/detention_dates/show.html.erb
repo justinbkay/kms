@@ -18,10 +18,10 @@
       <td><%= d.assignor %></td>
       <td id="complete_<%= d.id %>" class="text-center"><%= complete_icons(d.completed) %></td>
       <td id="cl_<%= d.id %>" class="text-center">
-        <%= link_to('<span class="glyphicon glyphicon-ok"></span>'.html_safe, '#', onclick: "mark_complete(#{ d.id}); return false;", title: "Mark complete") unless d.completed %>
+        <%= link_to('<span class="glyphicon glyphicon-ok"></span>'.html_safe, '#', onclick: "mark_complete(#{d.id}); return false;", title: "Mark complete") unless d.completed %>
       </td>
-      <td id="schedule_<%= d.id %>" class="text-center">
-        <%= link_to '<span class="glyphicon glyphicon-time"></span>'.html_safe, root_url, title: "Reschedule" unless d.completed %>
+      <td id="reschedule_<%= d.id %>" class="text-center">
+        <%= link_to('<span class="glyphicon glyphicon-time"></span>'.html_safe, '#', onclick: "reschedule(#{d.id}); return false;", title: "Reschedule") unless d.completed %>
       </td>
     </tr>
   <% end %>
