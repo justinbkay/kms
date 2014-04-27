@@ -6,7 +6,9 @@
     <th>Issue(s)</th>
     <th>Teacher</th>
     <th>Assigned by</th>
-    <th>Complete?</th>
+    <th class="text-center">Complete?</th>
+    <th class="text-center">Mark Complete</th>
+    <th class="text-center">Reschedule</th>
   </tr>
   <% @detention_date.detentions.each do |d| %>
     <tr>
@@ -14,7 +16,13 @@
       <td><%= d.office_direct_referral.problem_behavior %></td>
       <td><%= d.office_direct_referral.user %></td>
       <td><%= d.assignor %></td>
-      <td><%= complete_icons(d.completed) %></td>
+      <td id="complete_<%= d.id %>" class="text-center"><%= complete_icons(d.completed) %></td>
+      <td id="cl_<%= d.id %>" class="text-center">
+        <%= link_to('<span class="glyphicon glyphicon-ok"></span>'.html_safe, '#', onclick: "mark_complete(#{ d.id}); return false;", title: "Mark complete") unless d.completed %>
+      </td>
+      <td class="text-center">
+        <%= link_to '<span class="glyphicon glyphicon-time"></span>'.html_safe, root_url, title: "Reschedule" %>
+      </td>
     </tr>
   <% end %>
 </table>

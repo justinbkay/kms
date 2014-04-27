@@ -23,4 +23,14 @@ class DetentionDatesController < ApplicationController
     end
   end
 
+  def mark_complete
+    @detention = Detention.find(params[:detention_id])
+
+    if @detention.update_attributes(completed: true)
+      render json: {complete: true}
+    else
+      render json: {complete: false}
+    end
+  end
+
 end

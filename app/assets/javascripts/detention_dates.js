@@ -23,3 +23,18 @@ var blackout = function (id) {
 var change_glyphicon = function (id) {
   $('#' + id).parent().html('<span class="glyphicon glyphicon-remove red"></span>');
 };
+
+var mark_complete = function(id) {
+  $.post("mark_complete", {detention_id: id}, function(data) {
+    if(data.complete === true) {
+      show_complete(id);
+    } else {
+      alert('An error occurred when trying to mark the detention as complete')
+    }
+  }, "json")
+};
+
+var show_complete = function(id) {
+  $('#complete_' + id).html('<span class="glyphicon glyphicon-ok green"></span>');
+  $('#cl_' + id).html('');
+};

@@ -11,7 +11,8 @@ RIGHTS[:staff] = [
 RIGHTS[:administrator] = [
                           ['detention_dates', 'index'],
                           ['detention_dates', 'show'],
-                          ['detention_dates', 'update']
+                          ['detention_dates', 'update'],
+                          ['detention_dates', 'mark_complete']
                          ] + RIGHTS[:staff]
 RIGHTS[:superuser] = [
                       ['users', 'new'],
