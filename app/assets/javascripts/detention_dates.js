@@ -37,4 +37,5 @@ var mark_complete = function(id) {
 var show_complete = function(id) {
   $('#complete_' + id).html('<span class="glyphicon glyphicon-ok green"></span>');
   $('#cl_' + id).html('');
+  $('#schedule_' + id).html('');
 };

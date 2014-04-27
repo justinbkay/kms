@@ -20,8 +20,8 @@
       <td id="cl_<%= d.id %>" class="text-center">
         <%= link_to('<span class="glyphicon glyphicon-ok"></span>'.html_safe, '#', onclick: "mark_complete(#{ d.id}); return false;", title: "Mark complete") unless d.completed %>
       </td>
-      <td class="text-center">
-        <%= link_to '<span class="glyphicon glyphicon-time"></span>'.html_safe, root_url, title: "Reschedule" %>
+      <td id="schedule_<%= d.id %>" class="text-center">
+        <%= link_to '<span class="glyphicon glyphicon-time"></span>'.html_safe, root_url, title: "Reschedule" unless d.completed %>
       </td>
     </tr>
   <% end %>
