@@ -37,6 +37,7 @@
               <li><%= link_to "Open ODRs", office_direct_referrals_path %></li>
             </ul>
           </li>
+          <li><%= link_to "Detention List", detention_calendars_path %></li>
         <% end %>
         <% if current_user && current_user.superuser? %>
           <li class="dropdown">

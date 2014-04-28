@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :minor_direct_referrals
   resources :password_resets
   resources :detention_dates
+  resources :detention_calendars
 
   root :to => "office_direct_referrals#index"
 

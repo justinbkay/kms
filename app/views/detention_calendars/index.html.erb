@@ -1,0 +1,29 @@
+<h2>Detention List by date</h2>
+
+<% @detention_dates.each do |d| %>
+  <div class="main">
+    <h3><%= d.date.strftime("%a, %d %b %Y") %></h3>
+    <% if d.detentions.present? %>
+      <table class="table table-condensed table-hover">
+        <tr>
+          <th>Student</th>
+          <th>Issue(s)</th>
+          <th>Type</th>
+          <th>Teacher</th>
+          <th>Assigned by</th>
+          <th class="text-center">Complete?</th>
+        </tr>
+        <% d.detentions.each do |d| %>
+          <tr>
+            <td><%= d.office_direct_referral.student %></td>
+            <td><%= d.office_direct_referral.problem_behavior %></td>
+            <td><%= d.detention_type %></td>
+            <td><%= d.office_direct_referral.user %></td>
+            <td><%= d.assignor %></td>
+            <td id="complete_<%= d.id %>" class="text-center"><%= complete_icons(d.completed) %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  <% end %>
+</div>

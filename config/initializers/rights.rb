@@ -6,7 +6,8 @@ RIGHTS[:staff] = [
                   ['office_direct_referrals', 'index'],
                   ['office_direct_referrals', 'edit'],
                   ['office_direct_referrals', 'update'],
-                  ['office_direct_referrals', 'student_search']
+                  ['office_direct_referrals', 'student_search'],
+                  ['detention_calendars', 'index']
                  ]
 RIGHTS[:administrator] = [
                           ['detention_dates', 'index'],
