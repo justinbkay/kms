@@ -9,6 +9,7 @@
         <th>Staff</th>
         <th>Date</th>
         <th>Time</th>
+        <th>Detention</th>
         <th>&nbsp;</th>
       </tr>
     <% @office_direct_referrals.each do |r| %>
@@ -19,6 +20,7 @@
        <td><%= r.kmsteacher %></td>
        <td><%= r.incident_date.strftime('%m/%d/%y') %></td>
        <td><%= r.incident_date.strftime('%l:%M %p') %></td>
+       <td><%= r.detention.detention_date.date.strftime("%a, %b %d") %></td>
        <td><%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_office_direct_referral_path(r) %></td>
      </tr>
     <% end %>
