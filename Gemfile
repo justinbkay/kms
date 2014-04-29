@@ -39,3 +39,5 @@ gem 'capistrano-rails', group: :development
 gem 'pry', group: [:development, :test]
 
 gem 'jquery-timepicker-rails'
+
+gem 'exception_notification'
