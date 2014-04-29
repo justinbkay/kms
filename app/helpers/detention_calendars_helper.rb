@@ -1,2 +1,2 @@
-module DetentionCalendarHelper
+module DetentionCalendarsHelper
 end
