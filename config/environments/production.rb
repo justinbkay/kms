@@ -87,5 +87,17 @@ Rails.application.configure do
     :sender_address => %{"notifier" <notifier@kunaschools.org>},
     :exception_recipients => %w{justinbkay@gmail.com}
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "app24672996.mailgun.org",
+    :user_name => "postmaster@app24672996.mailgun.org",
+    :password => "2daz8egs2ll8"
+  }
 end
 
