@@ -41,3 +41,8 @@ gem 'pry', group: [:development, :test]
 gem 'jquery-timepicker-rails'
 
 gem 'exception_notification'
+
+# heroku
+gem 'rails_12factor', group: :production
+
+ruby "2.1.1"
